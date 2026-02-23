@@ -1,0 +1,83 @@
+/* Mobile-only adjustments: increase base font-size by 20% and slightly scale content
+   This targets small viewports only and won't affect tablet/desktop. */
+
+@media (max-width: 640px) {
+  /* Increase the root font size so Tailwind rem-based utilities scale up ~20% */
+  html {
+    font-size: 120%;
+  }
+
+  /* Optional overall zoom so you can preview a 20% scaled UI while keeping layout
+     relative positions intact. Using transform keeps layout flow but may create
+     overflow; keep it minimal. Uncomment if you want to enable full zoom. */
+  /*
+  body {
+    transform: scale(1.2);
+    transform-origin: top left;
+  }
+  */
+
+  /* Keep elements from becoming too small with text-size-adjust on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Specific label increases (mobile only) */
+  /* Force target labels & all small-text utility classes to 25px on mobile only */
+  .mobile-lg-text,
+  .mobile-lg-large,
+  .text-xs,
+  .text-sm,
+  .text-[10px],
+  .text-[11px],
+  .text-[9px],
+  .text-[8px] {
+    font-size: 25px !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Ensure buttons/links that used very small uppercase sizing also scale */
+  .uppercase.mobile-lg-text,
+  button[class*="text-"],
+  a[class*="text-"] {
+    font-size: 25px !important;
+  }
+
+  /* Mobile header logo & text scaling */
+  .mobile-logo {
+    width: 72px !important;
+    height: 72px !important;
+    font-size: 32px !important;
+  }
+
+  .mobile-logo-title {
+    font-size: 25px !important;
+    line-height: 1 !important;
+  }
+
+  .mobile-logo-sub {
+    font-size: 20px !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  /* Enlarge mobile hamburger and mobile menu items */
+  .mobile-hamburger svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .mobile-menu-item {
+    font-size: 25px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  /* If any header nav buttons are visible on very small screens, bump them too */
+  header nav button,
+  header nav a {
+    font-size: 25px !important;
+  }
+}

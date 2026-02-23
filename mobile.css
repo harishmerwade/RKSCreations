@@ -1,0 +1,110 @@
+/* Mobile-only adjustments: increase base font-size by 20% and slightly scale content
+   This targets small viewports only and won't affect tablet/desktop. */
+
+@media (max-width: 640px) {
+  /* Increase the root font size so Tailwind rem-based utilities scale up ~20% */
+  html {
+    font-size: 120%;
+  }
+
+  /* Optional overall zoom so you can preview a 20% scaled UI while keeping layout
+     relative positions intact. Using transform keeps layout flow but may create
+     overflow; keep it minimal. Uncomment if you want to enable full zoom. */
+  /*
+  body {
+    transform: scale(1.2);
+    transform-origin: top left;
+  }
+  */
+
+  /* Keep elements from becoming too small with text-size-adjust on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+/* Specific label increases (mobile only)
+     Use attribute selectors for Tailwind arbitrary classes like text-[10px]. */
+  .mobile-lg-text,
+  .mobile-lg-large,
+  .text-xs,
+  .text-sm,
+  [class*="text-[8px]"],
+  [class*="text-[9px]"],
+  [class*="text-[10px]"],
+  [class*="text-[11px]"],
+  [class*="text-[12px]"] {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Do not increase any font inside hero section */
+  .hero-section .mobile-lg-text,
+  .hero-section .mobile-lg-large,
+  .hero-section .text-xs,
+  .hero-section .text-sm,
+  .hero-section [class*="text-[8px]"],
+  .hero-section [class*="text-[9px]"],
+  .hero-section [class*="text-[10px]"],
+  .hero-section [class*="text-[11px]"],
+  .hero-section [class*="text-[12px]"],
+  .hero-section button[class*="text-"],
+  .hero-section a[class*="text-"] {
+    font-size: revert !important;
+    line-height: revert !important;
+    letter-spacing: revert !important;
+    white-space: revert !important;
+    overflow-wrap: revert !important;
+    word-break: revert !important;
+  }
+
+  /* Mobile header logo & text scaling */
+  .mobile-logo {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 50px !important;
+  }
+
+  .mobile-logo-title {
+    font-size: 50px !important;
+    line-height: 1 !important;
+  }
+
+  .mobile-logo-sub {
+    font-size: 35px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  /* Enlarge mobile hamburger and mobile menu items */
+  .mobile-hamburger {
+    padding: 20px !important;
+    border-radius: 20px !important;
+  }
+
+  .mobile-hamburger svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .mobile-menu-item {
+    font-size: 25px !important;
+    padding-top: 10px !important;
+    padding-bottom: 50px !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  /* If any header nav buttons are visible on very small screens, bump them too */
+  header nav button,
+  header nav a {
+    font-size: 25px !important;
+  }
+
+  /* Mobile: zoom hero section slightly and reduce its height */
+  .hero-section {
+    min-height: 90vh !important;
+    transform: scale(1.1) !important;
+    transform-origin: top center !important;
+    overflow: hidden !important;
+  }
+}
